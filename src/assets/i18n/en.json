@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "books": "Book Shelf",
+    "genres": "Genres",
+    "authors": "Authors",
+    "issued": "Issued Books",
+    "fav": "Favorite",
+    "setting": "Settings",
+    "logout": "Log Out"
+  }
+}

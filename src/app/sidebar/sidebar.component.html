@@ -3,13 +3,20 @@
     <button mat-icon-button (click)="snav.toggle()" class="mat-button">
       <mat-icon>menu</mat-icon>
     </button>
+    <button class="btn-lang" (click)="useLanguage('en')">
+      <img height="50px" src="https://cdn-icons-png.flaticon.com/512/330/330459.png" alt="USA Flag">
+    </button>
+    <button class="btn " (click)="useLanguage('kh')">
+      <img height="50px" src="https://cdn-icons-png.flaticon.com/512/330/330526.png" alt="Cambodia Flag">
+    </button>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                 [opened]="mobileQuery.matches ? 'false' : 'true'"
                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
-                class="d-flex align-content-around flex-wrap">
+                [class]="mobileQuery.matches ? 'sidenav-mobile' : 'sidenav-desktop'"
+                >
 
       <div class="w-100 ps-5 my-4">
         <mat-icon class="ms-3"> notifications_none </mat-icon>
@@ -24,9 +31,9 @@
 
       <mat-nav-list>
         <div class="d-flex flex-column justify-content-center">
-          <a mat-list-item *ngFor="let i of midMenu" [routerLink]="i.link" (click)="mobileQuery.matches ? snav.toggle() : ''">
+          <a mat-list-item *ngFor="let i of midMenu" [routerLink]="i.link" (click)="mobileQuery.matches ? snav.toggle() : ''" class="my-2 mat-list-item">
             <mat-icon class="me-2"> {{i.icon}} </mat-icon>
-            {{ i.title }}
+            {{ i.title | translate }}
           </a>
         </div>
       </mat-nav-list>
@@ -35,9 +42,9 @@
 
       <mat-nav-list>
         <div class="d-flex flex-column justify-content-center me-0">
-          <a mat-list-item *ngFor="let i of botMenu" [routerLink]="i.link" (click)="mobileQuery.matches ? snav.toggle() : ''">
+          <a mat-list-item *ngFor="let i of botMenu" [routerLink]="i.link" (click)="mobileQuery.matches ? snav.toggle() : ''" class="my-2">
             <mat-icon class="me-2"> {{i.icon}} </mat-icon>
-            {{ i.title }}
+            {{ i.title | translate }}
           </a>
         </div>
       </mat-nav-list>
