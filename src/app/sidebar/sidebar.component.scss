@@ -2,10 +2,6 @@ mat-divider {
   margin: 20px 20% 20px 20%;
 }
 
-mat-nav-list {
-  padding-left: 120px;
-}
-
 // mat-nav-list {
 //   text-align: center;
 // }
@@ -20,14 +16,15 @@ mat-toolbar {
 
 .btn-lang {
   border: none;
+  background-color: transparent;
 }
 
-.sidenav-desktop{
-  width: 30%;
+.mat-nav-list-desktop{
+  padding: 0 100px;
 }
 
-.sidenav-mobile {
-  width: 70%;
+.mat-nav-list-mobile {
+  padding: 0 50px;
 }
 
 .example-container {

@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
+  eng = true;
 
   private _mobileQueryListener: () => void;
 
@@ -25,6 +26,8 @@ export class SidebarComponent implements OnDestroy {
 
   useLanguage(language: string) {
     this.translate.use(language);
+    this.eng = !this.eng
+    console.log(this.eng);
   }
 
   midMenu = [
