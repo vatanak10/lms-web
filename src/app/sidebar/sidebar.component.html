@@ -1,0 +1,71 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+
+  <mat-toolbar class="toolbar ml-auto">
+
+    <!-- <button mat-icon-button (click)="snav.toggle()" class="mat-button"> -->
+    <mat-icon (click)="snav.toggle()" class="m-2">menu</mat-icon>
+
+    <div class =" d-flex d-inline-flex justify-content-center">
+      <!-- </button> -->
+      <button *ngIf="!eng" class="btn-lang" (click)="useLanguage('en')">
+        <img height="40px" src="https://cdn-icons-png.flaticon.com/512/330/330459.png" alt="USA Flag">
+      </button>
+      <button *ngIf="eng" class="btn-lang" (click)="useLanguage('kh')">
+        <img height="40px" src="https://cdn-icons-png.flaticon.com/512/330/330526.png" alt="Cambodia Flag">
+      </button>
+
+      <!-- </heading text> -->
+      <div>
+     <span class="text-white fs-4 pt-1 px-4"><strong>Library Managment System </strong></span>
+      </div>
+
+    </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? 'false' : 'true'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+      <div class="w-100 ps-5 my-4">
+        <mat-icon class="ms-3"> notifications_none </mat-icon>
+      </div>
+
+      <div class="col-xs-1" align="center">
+        <img width="100px" class="rounded-circle mb-2"
+          src="https://imgr.search.brave.com/piLHbtSv9k1WtbsxAVFkWw0DNRVXkwc3bGeErFRaSig/fit/680/680/ce/1/aHR0cHM6Ly9maXZl/cnItcmVzLmNsb3Vk/aW5hcnkuY29tL2lt/YWdlcy90X21haW4x/LHFfYXV0byxmX2F1/dG8scV9hdXRvLGZf/YXV0by9naWdzLzEy/MzE1NTExNi9vcmln/aW5hbC9hZGE2OTI1/MzllZDllYTEyYTJk/MjBiZjA1NGFiNTMx/NmQyMTEyNTRiL2Ny/ZWF0ZS1pbGx1c3Ry/YXRpdmUtaW5zdGFn/cmFtLXR3aXRjaC1h/bmQteW91dHViZS1w/cm9maWxlLXBpY3R1/cmVzLmpwZw"
+          alt="Profile Image">
+        <h2>Serey Vatanak</h2>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <mat-nav-list [class]="mobileQuery.matches ? 'mat-nav-list-mobile' : 'mat-nav-list-desktop'">
+        <div class="d-flex flex-column justify-content-center">
+          <a mat-list-item *ngFor="let i of midMenu" [routerLink]="i.link"
+            (click)="mobileQuery.matches ? snav.toggle() : ''" class="my-2">
+            <mat-icon class="me-2"> {{i.icon}} </mat-icon>
+            {{  i.title | translate }}
+          </a>
+        </div>
+      </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <mat-nav-list [class]="mobileQuery.matches ? 'mat-nav-list-mobile' : 'mat-nav-list-desktop'">
+        <div class="d-flex flex-column justify-content-center me-0">
+          <a mat-list-item *ngFor="let i of botMenu" [routerLink]="i.link"
+            (click)="mobileQuery.matches ? snav.toggle() : ''" class="my-2">
+            <mat-icon class="me-2"> {{i.icon}} </mat-icon>
+            {{ i.title | translate }}
+          </a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="padding: 0 7%;">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,70 @@
+/* Style buttons */
+.btn {
+    background-color: white; /* Blue background */
+    border-style:auto; /* Remove borders */
+    color:black; /* White text */
+    padding: 8px 9px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    display: flex;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: gainsboro;
+  }
+
+
+
+
+#facilities{
+    background-color: white;
+    padding: 20px 0px;
+}
+
+#facilities h5{
+    font-weight: 900;
+    font-size:34px;
+    
+}
+
+.card{
+    position:relative;
+    display: flex;
+    align-content:center;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: white;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+  
+   padding: 10px;
+   margin-left: 50px;
+   margin-right: 50px;
+   margin-top:30px;
+   
+}
+
+
+.card-img-top {
+    height: 20vw;
+    object-fit:fill;
+}
+
+
+.card-body a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: auto;
+    font-weight: 600;
+    padding:4px
+}
+
+
+.card-body a:hover{
+    color: blue;
+    text-decoration: none; 
+}
+

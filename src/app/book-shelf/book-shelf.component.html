@@ -1,0 +1,104 @@
+
+<!-- first nav bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="pt-3 px-0 navbar-brand" href="#">
+        <h1>Bookshelf</h1>
+      </a>
+    </div>
+    
+     <!-- search button-->
+     <div class="d-flex d-inline-flex justify-content-between">
+      <input type="text" class="form-control me-2" [(ngModel)]= "searchTerm" (keyup)="search($event)"  placeholder="Search books" aria-label="Search" >
+      <button class="btn" type="submit"><mat-icon>search</mat-icon></button>    
+    </div>
+
+  </nav>
+  
+
+<!-- second nav bar-->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container ">
+      <div>
+        <!-- Add new book button-->
+        <button id="add-new-book" type="btn" class="btn btn-outline-success d-inline-flex align-items-center" (click) = onClickAddNew()>
+           + Add New Book
+        </button>
+  
+        <!-- Add toggler-->   
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      
+      
+      <div>   
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">     
+          <div>       
+            <ul class="my-3 navbar-nav">
+        
+              <!-- Genre dropdown-->
+              <li class="mx-3 nav-item dropdown">
+                <a class=" border border-dark rounded-pill nav-link dropdown-toggle " style="width: 5rem;" href="#"
+                  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Genre
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+             
+                    <li><a (click)="filter('Mystery')" class="dropdown-item">Mystery</a></li>
+                    <li><a (click)="filter('Adventure')" class="dropdown-item">Adventure</a></li>
+                    <li><a (click)="filter('Nonfiction')" class="dropdown-item">Nonfiction</a></li>
+                    <li><a (click)="filter('Fiction')" class="dropdown-item">Fiction</a></li>
+      
+                </div>
+              </li>
+            
+        <!-- Author dropdown-->
+        
+          <li class="nav-item dropdown ">
+            <a class="border border-dark rounded-pill nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Author
+            </a>
+            <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+              <div *ngFor= "let book of bookData">
+                <li><a class="dropdown-item">{{book.author}}</a></li>
+              </div>
+        </div>
+        </li>
+        </ul>
+      </div>
+   
+      
+    
+   
+      </div>
+   
+      </div>
+    </div>    
+  </nav>
+
+<!--card body-->
+<div class = "contianer">
+    <div class = "row">
+      <!--search book name or author-->
+        <ng-container *ngFor="let data of bookData | filter:searchKey: 'name' && 'author' ">
+            <div class="card col-md-3 ">
+                <img [src]="data.image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                          <h5 class="card-tittle" style = "white-space: nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 13rem"
+                          > {{data.name}}</h5>
+                          <h6 class= "card-subtitle mb-3" ><small class="text-muted">{{data.author}}</small></h6> 
+                          <a class="border border-dark rounded-3" (click) = onClickView() >Read More</a>
+                    </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+  
+
+  
+  
+  
