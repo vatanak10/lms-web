@@ -1,4 +1,4 @@
-import { ItemService } from './../services/item.service';
+import { ItemService } from '../../services/item.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-book.component.scss']
 })
 export class ManageBookComponent implements OnInit {
-   
+
     ngOnInit(): void {
 
     }
 
 
-     
-  
-    
+
+
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from './../services/item.service';
+import { ItemService } from '../../services/item.service';
 import { Router} from "@angular/router";
 
 @Component({
@@ -21,7 +21,7 @@ export class BookShelfComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
     this.itemService.search.subscribe((val: any) => {
       this.searchKey = val;
     })
@@ -89,7 +89,7 @@ export class BookShelfComponent implements OnInit {
     })
   }
 
-  
+
 
 
 }
