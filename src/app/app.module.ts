@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     AddBookComponent,
     ManageBookComponent,
     ReadMoreComponent
-  
+
   ],
   imports: [
     BrowserModule,

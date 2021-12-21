@@ -2,7 +2,6 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -25,7 +24,7 @@ export class SidebarComponent implements OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  
+
 
   useLanguage(language: string) {
     this.translate.use(language);
