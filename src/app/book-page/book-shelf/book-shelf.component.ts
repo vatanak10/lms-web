@@ -10,28 +10,23 @@ import { ItemService } from "../../services/item.service";
 })
 
 export class BookShelfComponent implements OnInit {
+    selected = 'all';
 
-   public bookList: any =[];
- 
-    
+    public bookList: any =[];
     public filterOption:any[] = [];
     searchKey: string= "";
     public searchTerm!: string;
-    
-
-
-    
 
     constructor(private router: Router, private itemService:ItemService, public translate: TranslateService){
         translate.setDefaultLang('en');
-        
+
     }
 
     ngOnInit():void{
         this.itemService.getAllItems().subscribe(res=>{
-            this.bookList = res;  
+            this.bookList = res;
             this.filterOption = this.bookList;
-   
+
         });
 
         this.itemService.search.subscribe((val:any)=>{
@@ -39,15 +34,20 @@ export class BookShelfComponent implements OnInit {
         })
     }
 
-   
-    filter(category:any){  
-        this.filterOption = this.bookList.filter((a:any =[])=>{
-            if(a == category || category == ''){
-                return a;
-            }
-        })
+
+    filter(value:any){
+      if (value === ''){
+        this.filterOption = this.bookList;
+      } else {
+        this.filterOption = this.bookList.filter((i:any) => i.genre === value);
+      }
+        // this.filterOption = this.bookList.filter((a:any =[])=>{
+        //     if(a == category || category == ''){
+        //         return a;
+        //     }
+        // })
     }
-    
+
     search(event:any){
         this.searchTerm = (event.target as HTMLInputElement).value;
         this.itemService.search.next(this.searchTerm);
@@ -56,11 +56,11 @@ export class BookShelfComponent implements OnInit {
     onClickAddNew(): void{
         this.router.navigate(['/bookshelf/add-new-book']);
     }
-    
+
     onClickItem(): void{
         this.router.navigate(['/view-book']);
     }
-     
-    
+
+
 
 }

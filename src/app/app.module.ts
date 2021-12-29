@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,18 +31,19 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent, 
+    SidebarComponent,
     BookShelfComponent,
     FilterPipe,
     AddBookComponent,
     BookListComponent,
     ViewBookComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -51,7 +53,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatDividerModule,
     HttpClientModule,
-  
+
     RouterModule.forRoot(appRoutes),
     TranslateModule.forRoot({
       loader: {
