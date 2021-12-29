@@ -1,0 +1,52 @@
+{
+  "menu": {
+    "books": "Book Shelf",
+    "genres": "Genres",
+    "authors": "Authors",
+    "issued": "Issued Books",
+    "fav": "Favorite",
+    "setting": "Settings",
+    "logout": "Log Out",
+    "manage": "Manage Book List"
+
+  },
+
+  "book": {
+    "bookshelf": "Bookshelf",
+    "search": "Search",
+    "add": "Add New Book",
+    "genres": "Genres",
+    "author": "Author"
+  },
+
+  "addBookForm": {
+    "add": "Add New Book",
+    "title": "Book Title",
+    "author": "Author",
+    "genre": "Genre",
+    "manage":"Manage Book List",
+    "date": "Publish Date",
+    "image": "Cover Image Link",
+    "submit": "Submit",
+    "cancel": "Cancel"
+
+  },
+
+  "booklist": {
+    "manage": "Manage Book List",
+    "add" :"Add New Book",
+    "id": "ID",
+    "image":"Book Image",
+    "title":"Title",
+    "author":"Author",
+    "genre":"Genre",
+    "date": "Publish Date",
+    "action":"Action",
+    "delete":"Delete",
+    "edit":"Edit",
+    "view":"View",
+    "back": "Go Back"
+  }
+
+
+}

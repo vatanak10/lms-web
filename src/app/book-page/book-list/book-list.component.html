@@ -1,0 +1,45 @@
+    <div class="container">
+        <h1 class="my-5" style ="text-align: center; margin: 2px">{{translate.instant('booklist.manage')|translate}}</h1>
+        <td><button routerLink="/bookshelf/add-new-book" class="btn btn-primary mb-4"> + {{translate.instant('booklist.add')|translate}}</button></td>
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>{{translate.instant('booklist.id')|translate}}</th>
+                            <th>{{translate.instant('booklist.image')|translate}}</th>
+                            <th>{{translate.instant('booklist.title')|translate}}</th>
+                            <th>{{translate.instant('booklist.author')|translate}}</th>
+                            <th>{{translate.instant('booklist.genre')|translate}}</th>
+                            <th>{{translate.instant('booklist.date')|translate}}</th>
+                            <th>{{translate.instant('booklist.action')|translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of bookList; let i = index">
+                            <td>{{i+1}}</td>
+                            <td><img style="width: 100px;" src="{{item.image}}" alt=""></td>
+                            <td style = "width: 30%;">{{item.title}}</td> 
+                            <td style="width: 30%;">{{item.author}}</td>
+                      
+                            <td style="width: 15%;">{{item.genre}}</td>
+                            <td style="width: 20%;">{{item.date}}</td>
+                            <td style=" width: 10%"> 
+                                <div class = "col d-inline-flex">
+                                    <button (click)="removeItem(item)" class="btn btn-danger btn-sm mx-2 d-inline-flex"><mat-icon>clear</mat-icon>{{translate.instant('booklist.delete')|translate}}</button>
+                                    <button (click)="editItem(item)" class="btn btn-warning btn-sm mx-2 d-inline-flex"><mat-icon>edit</mat-icon>{{translate.instant('booklist.edit')|translate}}</button>
+                                    <button (click)="viewItem(item)" class="btn btn-primary btn-sm mx-2 d-inline-flex">	<mat-icon>visibility</mat-icon>{{translate.instant('booklist.view')|translate}}</button>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="float: right; padding-bottom: 5rem;">
+        <td><button routerLink="/bookshelf" class="btn btn-primary d-inline-flex"><mat-icon>keyboard_backspace</mat-icon> {{translate.instant('booklist.back')|translate}}</button></td>      
+    </div>
+
+

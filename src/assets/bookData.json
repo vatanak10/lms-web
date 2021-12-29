@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "title": "Paper Town",
+      "author": "John Green",
+      "genre": "mystery",
+      "date": "2010",
+      "image": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4088/9781408848180.jpg"
+    },
+    {
+        "id": 2,
+        "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "genre": "adventure",
+      "date": "2011",
+      "image": "https://kbimages1-a.akamaihd.net/32ad8373-9cc5-4c4f-aa82-8155edbc7029/1200/1200/False/the-alchemist-a-graphic-novel.jpg"
+    },
+    {
+        "id": 3,
+        "title": "The Mountain Is You",
+      "author": "Briana Wiest",
+      "genre": "nonfiction",
+      "date": "2012",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/31OB9IQdNaL._SX311_BO1,204,203,200_.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Harry Potter and the Pholisophys Stone",
+      "author": "JK Rowling",
+      "genre": "adventure",
+      "date": "2013",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/910ityjoncL.jpg"
+    },
+    {
+        "id": 5,
+        "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "tragedy",
+      "date": "2014",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg"
+    },
+    {
+        "id": 6,
+        "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "genre": "fiction",
+      "date": "2015",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51N5qVjuKAL._SX309_BO1,204,203,200_.jpg"
+    }
+  ]

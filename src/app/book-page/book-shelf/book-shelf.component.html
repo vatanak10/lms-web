@@ -1,0 +1,99 @@
+<div class ="container"> 
+    <nav class ="navbar navbar-expand-lg navbar-light">
+        <div class ="container">
+            <a class ="pt-3 px-0 navbar-brand">
+                <h1>{{ translate.instant('book.bookshelf')| translate }}</h1>
+            </a>
+        </div>
+    
+        <!--search button-->
+        <div class = "d-flex d-inline-flex">
+            <input type="text" class="form-control me-2" [(ngModel)]= "searchTerm" (keyup)="search($event)"  placeholder="{{ translate.instant('book.search')| translate }}" aria-label="Search" >
+        </div>
+    </nav>
+</div>
+
+
+
+<div class = "container"> 
+    <nav class ="navbar navbar-expand-lg navbar-light">
+        <div class ="container">
+    
+             <!-- Add new book button-->
+            <div>
+                <button id="add-new-book" type = "submit" class ="btn btn-outline-success d-inline-flex align-items-center" 
+                (click) = onClickAddNew()> + {{ translate.instant('book.add')| translate }}
+                </button>
+            </div>
+    
+            <!--Add toggler-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>     
+        </div>
+    
+        <div>
+            <div class="collapse navbar-collapse" id= "navbarNavDropdown">
+                <div class= "row d-flex d-inline-flex">
+                    <ul class = "my-3 navbar-nav">
+                        <li class ="mx-3 nav-item dropdown">
+                            <!--genre dropdown-->
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="">{{ translate.instant('book.genres')| translate }}</a>
+                            <div class ="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="dropdown-item" (click)="filter('')">All</li>   
+                                <ng-container *ngFor="let item of filterOption" (click)="filter('item.id')">                               
+                                    <li class="dropdown-item" >{{item.genre}}</li>
+                                </ng-container>     
+
+                                <!-- 
+                                <li class="dropdown-item" (click)="filter('Mystery')">Mystery</li>
+                                <li class="dropdown-item" (click)="filter('fiction')">Fiction</li>
+                                <li class="dropdown-item" (click)="filter('nonfiction')">Non-fiction</li>
+                                <li class="dropdown-item" (click)="filter('tragedy')">Tradegy</li>
+                                <li class="dropdown-item" (click)="filter('adventure')">Adventure</li>
+                                -->
+                                
+                            </div>
+                        </li>
+    
+                        <li class ="mx-3 nav-item dropdown">
+                            <!--author dropdown-->
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="">{{ translate.instant('book.author')| translate }}</a>
+                            <div class ="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="dropdown-item" (click)="filter('')">All</li>
+                                <ng-container *ngFor="let item of filterOption" (click) = "filter(item.id)">                               
+                                    <li class="dropdown-item"  >{{item.author}}</li>
+                                </ng-container>                                                               
+                            </div>
+                        </li>
+    
+                    </ul>
+                </div>            
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+    <div class = "container d-flex " style ="width: 65rem; align-items: center;" (click) ="onClickItem()">
+        <div class = "card-group">    
+            <ng-container *ngFor="let item of filterOption | filter:searchKey : 'title' ">
+
+                    <div class ="row">
+                        <div class="card d-flex d-inline-flex justify-content-center mx-5 my-3 " style="width:16rem;">
+                            <img src="{{item.image}}"class="card-img-top  py-3" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title">{{item.title}}</h5>
+                              <p class="card-text" style="align-items: bottom">{{item.author}}</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            </ng-container>    
+            
+        </div>
+    </div>
+
+
+

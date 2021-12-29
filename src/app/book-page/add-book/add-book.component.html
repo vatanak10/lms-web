@@ -1,0 +1,72 @@
+<div class ="container-fluid">
+    <form (ngSubmit)="onSubmit()" [formGroup] = "form">
+        <h2 style="text-align: justify; padding-top: 30px; padding-bottom: 30px;"> {{ translate.instant('addBookForm.add')| translate }} </h2>
+     
+        <!--Book Title-->
+        <div class="row mb-5">
+          <label for="titleFormControl" class="col-sm col-form-label col-form-label-sm"> {{ translate.instant('addBookForm.title')| translate }} :</label>
+          <div class="col-sm-10">    
+          <input 
+            type="text" 
+            class="form-control" 
+            id="titleFormControl" 
+            formControlName="title">
+          </div>
+        </div>
+    
+        <!--Author-->
+        <div class="row mb-5">
+            <label for="authorFormControl" class="col-sm col-form-label col-form-label-sm"> {{ translate.instant('addBookForm.author')| translate }} : </label>
+            <div class="col-sm-10">
+              <input 
+                type="text" 
+                class="form-control" 
+                id="authorFormControl" 
+                formControlName="author">
+            </div>
+        </div>
+    
+        <!--Genre-->
+        <div class="row mb-5">
+            <label for="genreFormControl" class="col-sm col-form-label col-form-label-sm"> {{ translate.instant('addBookForm.genre')| translate }} :</label>
+            <div class="col-sm-10">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="genreFormControl" 
+                    formControlName="genre">
+            </div>
+        </div>
+    
+        <!--Pusblish Date-->
+        <div class="row mb-5">
+            <label for="dateFormControl" class="col-sm col-form-label col-form-label-sm"> {{ translate.instant('addBookForm.date')| translate }} :</label>
+            <div class="col-sm-10">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="dateFormControl" 
+                    formControlName="date">
+            </div>
+        </div>
+    
+        <!--Book Cover Image-->
+        <div class="row mb-5">
+            <label for="imageFormControl" class="col-sm col-form-label col-form-label-sm"> {{ translate.instant('addBookForm.image')| translate }} :</label>
+            <div class="col-sm-10">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="imageFormControl" 
+                    formControlName="image">
+            </div>
+        </div>
+        
+    
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-primary">{{translate.instant('addBookForm.submit')|translate}}</button>  
+            <button type="button" class="btn btn-danger me-md-2"  (click) ="onClickCancel()">{{ translate.instant('addBookForm.cancel')| translate }}</button>    
+        </div>
+    
+    </form>
+    </div>
