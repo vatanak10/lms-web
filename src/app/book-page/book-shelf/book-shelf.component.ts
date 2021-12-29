@@ -10,7 +10,8 @@ import { ItemService } from "../../services/item.service";
 })
 
 export class BookShelfComponent implements OnInit {
-    selected = 'all';
+    selectedGenre = 'all';
+    selectedAuthor = 'all';
 
     public bookList: any =[];
     public filterOption:any[] = [];
@@ -35,12 +36,18 @@ export class BookShelfComponent implements OnInit {
     }
 
 
-    filter(value:any){
-      if (value === ''){
+    filter(genre:any, author:any){
+      if (genre === 'all' && author === 'all'){
         this.filterOption = this.bookList;
+      } else if (genre === 'all') {
+        this.filterOption = this.bookList.filter((i:any) => i.author === author);
+      } else if (author === 'all') {
+        this.filterOption = this.bookList.filter((i:any) => i.genre === genre);
       } else {
-        this.filterOption = this.bookList.filter((i:any) => i.genre === value);
+        this.filterOption = this.bookList.filter((i:any) => i.genre === genre);
+        this.filterOption = this.filterOption.filter((i:any) => i.author === author);
       }
+
         // this.filterOption = this.bookList.filter((a:any =[])=>{
         //     if(a == category || category == ''){
         //         return a;
