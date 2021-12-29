@@ -41,16 +41,16 @@ export class SidebarComponent implements OnDestroy {
       title: this.translate.instant('menu.manage'),
       link: '/manage-book-list'
     },
-    {
-      icon: 'widgets',
-      title: this.translate.instant('menu.genres'),
-      link: '.'
-    },
-    {
-      icon: 'person_outline',
-      title: this.translate.instant('menu.authors'),
-      link: '.'
-    },
+    // {
+    //   icon: 'widgets',
+    //   title: this.translate.instant('menu.genres'),
+    //   link: '.'
+    // },
+    // {
+    //   icon: 'person_outline',
+    //   title: this.translate.instant('menu.authors'),
+    //   link: '.'
+    // },
     {
       icon: 'assignment_outline',
       title: this.translate.instant('menu.issued'),
