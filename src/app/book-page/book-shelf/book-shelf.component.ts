@@ -10,28 +10,24 @@ import { ItemService } from "../../services/item.service";
 })
 
 export class BookShelfComponent implements OnInit {
+    selectedGenre = 'all';
+    selectedAuthor = 'all';
 
-   public bookList: any =[];
- 
-    
+    public bookList: any =[];
     public filterOption:any[] = [];
     searchKey: string= "";
     public searchTerm!: string;
-    
-
-
-    
 
     constructor(private router: Router, private itemService:ItemService, public translate: TranslateService){
         translate.setDefaultLang('en');
-        
+
     }
 
     ngOnInit():void{
         this.itemService.getAllItems().subscribe(res=>{
-            this.bookList = res;  
+            this.bookList = res;
             this.filterOption = this.bookList;
-   
+
         });
 
         this.itemService.search.subscribe((val:any)=>{
@@ -39,15 +35,26 @@ export class BookShelfComponent implements OnInit {
         })
     }
 
-   
-    filter(category:any){  
-        this.filterOption = this.bookList.filter((a:any =[])=>{
-            if(a == category || category == ''){
-                return a;
-            }
-        })
+
+    filter(genre:any, author:any){
+      if (genre === 'all' && author === 'all'){
+        this.filterOption = this.bookList;
+      } else if (genre === 'all') {
+        this.filterOption = this.bookList.filter((i:any) => i.author === author);
+      } else if (author === 'all') {
+        this.filterOption = this.bookList.filter((i:any) => i.genre === genre);
+      } else {
+        this.filterOption = this.bookList.filter((i:any) => i.genre === genre);
+        this.filterOption = this.filterOption.filter((i:any) => i.author === author);
+      }
+
+        // this.filterOption = this.bookList.filter((a:any =[])=>{
+        //     if(a == category || category == ''){
+        //         return a;
+        //     }
+        // })
     }
-    
+
     search(event:any){
         this.searchTerm = (event.target as HTMLInputElement).value;
         this.itemService.search.next(this.searchTerm);
@@ -56,11 +63,11 @@ export class BookShelfComponent implements OnInit {
     onClickAddNew(): void{
         this.router.navigate(['/bookshelf/add-new-book']);
     }
-    
+
     onClickItem(): void{
         this.router.navigate(['/view-book']);
     }
-     
-    
+
+
 
 }
