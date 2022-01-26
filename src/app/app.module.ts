@@ -16,6 +16,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+
 import { BookListComponent } from './book-page/book-list/book-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BookShelfComponent } from './book-page/book-shelf/book-shelf.component';
@@ -23,6 +25,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AddBookComponent } from './book-page/add-book/add-book.component';
 import { ViewBookComponent } from './book-page/view-book/view-book.component';
+import { AuthorListComponent } from './author-page/author-list/author-list.component';
+import { AddAuthorComponent } from './author-page/add-author/add-author.component';
+import { ItemService } from './services/item.service';
+import { AuthorService } from './services/author.service';
 
 const appRoutes: Routes = [
   {path: '', component: BookShelfComponent}
@@ -37,6 +43,8 @@ const appRoutes: Routes = [
     AddBookComponent,
     BookListComponent,
     ViewBookComponent,
+    AuthorListComponent,
+    AddAuthorComponent
 
   ],
   imports: [
@@ -53,6 +61,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatDividerModule,
     HttpClientModule,
+    MatTableModule,
 
     RouterModule.forRoot(appRoutes),
     TranslateModule.forRoot({
@@ -63,7 +72,7 @@ const appRoutes: Routes = [
       }
     })
   ],
-  providers: [],
+  providers: [ItemService, AuthorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddBookComponent } from './book-page/add-book/add-book.component';
 import { BookListComponent } from './book-page/book-list/book-list.component';
 import { ViewBookComponent } from './book-page/view-book/view-book.component';
+import { AuthorListComponent } from './author-page/author-list/author-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bookshelf', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'bookshelf/add-new-book', component: AddBookComponent},
   { path: 'manage-book-list', component: BookListComponent},
   { path: 'view-book', component: ViewBookComponent},
+  { path: 'authors', component: AuthorListComponent},
 
 
 ];
